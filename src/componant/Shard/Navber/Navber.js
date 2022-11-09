@@ -7,7 +7,7 @@ import './Navber.css'
 
 const Navber = () => {
     return (
-        <Navbar collapseOnSelect expand="lg" bg="dark" className='sticky-top' variant="dark">
+        <Navbar collapseOnSelect expand="lg" bg="dark" className='sticky-top nav-hight' variant="dark">
         <Container>
           <Navbar.Brand href="#home"><span className='text-warning'>PHOTO</span>GRAFI</Navbar.Brand>
           <Navbar.Toggle aria-controls="responsive-navbar-nav" />
