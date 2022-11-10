@@ -4,10 +4,10 @@ import profil from '../../../essetcs/img/SAJIM.jpg'
 
 const MySkeles = () => {
     const prograss = [
-        { value: 90, titla: "Photoshop " },
-        { value: 80, titla: "Final Cut " },
-        { value: 75, titla: "Studio Photography " },
-        { value: 85, titla: "Motion Video" },
+        {id:1, value: 90, titla: "Photoshop " },
+        {id:2, value: 80, titla: "Final Cut " },
+        {id:3, value: 75, titla: "Studio Photography " },
+        {id:4, value: 85, titla: "Motion Video" },
     ]
     return (
         <div className='container  py-5'>
@@ -48,8 +48,10 @@ const MySkeles = () => {
                     <p>Duis non lectus sit amet est imperdiet cursus elementum vitae eros. Etiam adipiscingmorbi vitae magna tellus, ac mattis urna phasellus rhoncus.</p>
                     {
                         prograss.map(prog =>
-                            <div className='mb-2'>
-                                <label htmlhtmlFor="prograss">{prog.titla}<span className='text-info'> - {prog.value}%</span></label>
+                            <div
+                            key={prog.id}
+                             className='mb-2'>
+                                <label htmlFor="prograss">{prog.titla}<span className='text-info'> - {prog.value}%</span></label>
                                 <ProgressBar id='prograss' animated now={prog.value} />
                             </div>
                         )

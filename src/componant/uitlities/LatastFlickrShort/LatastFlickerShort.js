@@ -55,7 +55,7 @@ const LatastFlickerShort = () => {
         autoplaySpeed: 20000,
         rtl: true,
         cssEase: "linear"
-      };
+    };
     const settings = {
         className: "center",
         centerMode: true,
@@ -75,7 +75,9 @@ const LatastFlickerShort = () => {
                     <Slider {...settings}>
 
                         {
-                            arr.map(imgslider => <div className='bg-info'><img style={{ height: "250px", width: "100%" }} src={imgslider.img} alt="" />
+                            arr.map(imgslider => <div
+                                key={imgslider.id}
+                                className='bg-info'><img style={{ height: "250px", width: "100%" }} src={imgslider.img} alt="" />
                             </div>)
                         }
 
@@ -84,7 +86,9 @@ const LatastFlickerShort = () => {
                     <Slider {...settings1}>
 
                         {
-                            arr.map(imgslider => <div className='bg-info'><img style={{ height: "250px", width: "100%" }} src={imgslider.img} alt="" />
+                            arr.map(imgslider => <div
+                                key={imgslider.id}
+                                className='bg-info'><img style={{ height: "250px", width: "100%" }} src={imgslider.img} alt="" />
                             </div>)
                         }
 

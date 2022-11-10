@@ -18,7 +18,9 @@ const FormJurnalest = () => {
             <div className='body1'>
                 <div className='container1'>
                     {
-                        formJurnalest.map(jurnal => <div className="card1">
+                        formJurnalest.map(jurnal => <div 
+                        key={jurnal.id}
+                        className="card1">
                             <div className="imgBx1">
                                 <img src={jurnal.img} alt="" />
                             </div>

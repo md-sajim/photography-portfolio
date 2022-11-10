@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaFacebookSquare, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { AuthProvider } from '../../../context/ContextProvider';
 import './SignUp.css'
 
 const SignUp = () => {
+    const {createAccout} = useContext(AuthProvider)
+    console.log(createAccout)
     return (
         <section className="background-radial-gradient overflow-hidden">
             <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
