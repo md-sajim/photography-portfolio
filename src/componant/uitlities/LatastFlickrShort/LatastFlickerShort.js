@@ -51,8 +51,8 @@ const LatastFlickerShort = () => {
         centerPadding: "60px",
         slidesToShow: 5,
         autoplay: true,
-        speed: 6000,
-        autoplaySpeed: 6000,
+        speed: 20000,
+        autoplaySpeed: 20000,
         rtl: true,
         cssEase: "linear"
       };
@@ -63,8 +63,8 @@ const LatastFlickerShort = () => {
         centerPadding: "60px",
         slidesToShow: 5,
         autoplay: true,
-        speed: 6000,
-        autoplaySpeed: 6000,
+        speed: 20000,
+        autoplaySpeed: 20000,
         cssEase: "linear"
     };
     return (
