@@ -1,3 +1,4 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { FaFacebookSquare, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -5,28 +6,36 @@ import { AuthProvider } from '../../../context/ContextProvider';
 import './SignUp.css'
 
 const SignUp = () => {
-    const {createAccout,setUser} = useContext(AuthProvider)
+    const { createAccout, signupWithGoogle } = useContext(AuthProvider)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
-    const hendleSignForm = e =>{
+    const hendleSignForm = e => {
         e.preventDefault();
         const form = e.target;
         const name = form.first.value + " " + form.last.value;
         const email = form.email.value;
         const password = form.password.value;
-        createAccout(email,password)
+        createAccout(email, password)
+            .then(result => {
+                const user = result.user;
+                navigate(from, { replace: true })
+                form.reset();
+                console.log(user)
+            })
+            .catch(err => console.log(err))
+        console.log(name, email, password)
+    }
+    const googleProvider = new GoogleAuthProvider()
+    const hendelSigninGoogle = ()=>{
+        signupWithGoogle(googleProvider)
         .then(result =>{
             const user = result.user;
-            setUser(user)
-            navigate(from,{replace:true})
-            form.reset();
-            console.log(user)
+            console.log(user);
         })
-        .catch(err => console.log(err))
-        console.log(name,email,password)
+        .catch(error=>console.error(error))
     }
-   
+
     return (
         <section className="background-radial-gradient overflow-hidden">
             <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
@@ -95,7 +104,7 @@ const SignUp = () => {
                                             <FaFacebookSquare />
                                         </button>
 
-                                        <button type="button" className="btn btn-link btn-floating mx-1">
+                                        <button onClick={hendelSigninGoogle} type="button" className="btn btn-link btn-floating mx-1">
                                             <FaGoogle />
                                         </button>
 

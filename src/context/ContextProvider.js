@@ -1,27 +1,48 @@
-import React, { createContext, useState } from 'react';
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "firebase/auth";
+import React, { createContext, useEffect, useState } from 'react';
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, signInWithPopup } from "firebase/auth";
 import app from '../firebase';
 
 
 
 export const AuthProvider = createContext();
-const auth = getAuth(app)
+const auth = getAuth(app);
 
 
 const ContextProvider = ({ children }) => {
-    const [user, setUser] = useState();
+    const [loding, setLoding] = useState(true);
+    const [user, setUser] = useState(null);
     const createAccout = (email, password) => {
+        setLoding(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
     const login = (email,password)=>{
+        setLoding(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
+    const logOut = ()=>{
+        setLoding(true)
+        return signOut(auth)
+    }
+    const signupWithGoogle = googleProvider => {
+        setLoding(true)
+        return signInWithPopup(auth, googleProvider)
+    }
+    useEffect(()=>{
+        const unsubscribe =  onAuthStateChanged(auth, carrantUser =>{
+              // console.log(carrantUser);
+              setUser(carrantUser)
+              setLoding(false)
+          })
+          return ()=>unsubscribe;
+      },[])
 
     const value = {
         user,
+        loding,
         createAccout,
-        setUser,
-        login
+        login,
+        logOut,
+        signupWithGoogle,
     }
     return (
         <AuthProvider.Provider value={value}>

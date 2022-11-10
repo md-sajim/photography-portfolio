@@ -6,7 +6,7 @@ import './Login.css'
 
 const Login = () => {
     const [err, setErr] = useState('')
-    const {login, setUser} = useContext(AuthProvider);
+    const {login} = useContext(AuthProvider);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -26,10 +26,10 @@ const Login = () => {
         login(email,password)
         .then(result =>{
             const user = result.user;
-            setUser(user)
             navigate(from,{replace:true})
 
         })
+        .catch(err =>console.log(err))
 
     }
     return (
