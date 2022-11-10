@@ -5,6 +5,7 @@ import img1 from '../../../essetcs/img/my latast short/myshort-1.jpg'
 import img2 from '../../../essetcs/img/my latast short/myshort-5.jpg'
 import img3 from '../../../essetcs/img/my latast short/myshort-4.jpg'
 import { FaRegHeart, IconName } from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const FormJurnalest = () => {
     const formJurnalest = [
@@ -18,9 +19,9 @@ const FormJurnalest = () => {
             <div className='body1'>
                 <div className='container1'>
                     {
-                        formJurnalest.map(jurnal => <div 
-                        key={jurnal.id}
-                        className="card1">
+                        formJurnalest.map(jurnal => <div
+                            key={jurnal.id}
+                            className="card1">
                             <div className="imgBx1">
                                 <img src={jurnal.img} alt="" />
                             </div>
@@ -29,15 +30,15 @@ const FormJurnalest = () => {
                                 <p><small>{jurnal.time} / {jurnal.place}</small></p>
                                 <p>{jurnal.details.slice(0, 100)}</p>
                                 <div>
-                                    <p className="border-success text-success d-inline border-bottom me-5 font-monospace">CONTINUE READING</p>
-                                <FaRegHeart className='text-danger'></FaRegHeart><p className='d-inline ms-1'><small>{jurnal.like}</small></p>
+                                    <Link className='text-decoration-none' to='/details'> <p className="border-success text-success d-inline border-bottom me-5 font-monospace">CONTINUE READING</p></Link>
+                                    <FaRegHeart className='text-danger'></FaRegHeart><p className='d-inline ms-1'><small>{jurnal.like}</small></p>
+                                </div>
                             </div>
-                        </div>
                         </div>)
                     }
 
+                </div>
             </div>
-        </div>
 
         </div >
     );

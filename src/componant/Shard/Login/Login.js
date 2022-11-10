@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaFacebookSquare, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { AuthProvider } from '../../../context/ContextProvider';
 import './Login.css'
 
 const Login = () => {
     const [err, setErr] = useState('')
+    const {login, setUser} = useContext(AuthProvider);
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
     const hendleLogin = e => {
         e.preventDefault();
         const form = e.target;
@@ -18,6 +23,13 @@ const Login = () => {
         if(condition === false){
             return setErr("please accept thrms condition")
         }
+        login(email,password)
+        .then(result =>{
+            const user = result.user;
+            setUser(user)
+            navigate(from,{replace:true})
+
+        })
 
     }
     return (

@@ -1,12 +1,32 @@
 import React, { useContext } from 'react';
 import { FaFacebookSquare, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthProvider } from '../../../context/ContextProvider';
 import './SignUp.css'
 
 const SignUp = () => {
-    const {createAccout} = useContext(AuthProvider)
-    console.log(createAccout)
+    const {createAccout,setUser} = useContext(AuthProvider)
+    const navigate = useNavigate();
+    const location = useLocation();
+    const from = location.state?.from?.pathname || '/'
+    const hendleSignForm = e =>{
+        e.preventDefault();
+        const form = e.target;
+        const name = form.first.value + " " + form.last.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        createAccout(email,password)
+        .then(result =>{
+            const user = result.user;
+            setUser(user)
+            navigate(from,{replace:true})
+            form.reset();
+            console.log(user)
+        })
+        .catch(err => console.log(err))
+        console.log(name,email,password)
+    }
+   
     return (
         <section className="background-radial-gradient overflow-hidden">
             <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
@@ -28,7 +48,7 @@ const SignUp = () => {
                         <div className="card bg-glass">
                             <div className="card-body px-4 py-5 px-md-5">
                                 <h3 className='mb-5'>Sign Up!</h3>
-                                <form>
+                                <form onSubmit={hendleSignForm}>
 
                                     <div className="row">
                                         <div className="col-md-6 mb-4">

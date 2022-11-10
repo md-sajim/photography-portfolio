@@ -7,6 +7,8 @@ import Main from './context/layOut/Main';
 import Home from './componant/pages/Home/Home';
 import Login from './componant/Shard/Login/Login';
 import SignUp from './componant/Shard/SignUp/SignUp';
+import PrivateRoute from './componant/Shard/PrivateRouter/PrivateRoute';
+import DetailsPage from './componant/DetailsPage/DetailsPage';
 
 function App() {
   const {name} = useContext(AuthProvider)
@@ -26,6 +28,10 @@ function App() {
         {
           path:'/signup',
           element:<SignUp></SignUp>
+        },
+        {
+          path:'/details',
+          element:<PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
         }
       ]
     }
