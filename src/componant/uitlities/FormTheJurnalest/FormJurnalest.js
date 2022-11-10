@@ -8,9 +8,9 @@ import { FaRegHeart, IconName } from "react-icons/fa";
 
 const FormJurnalest = () => {
     const formJurnalest = [
-        { id: 1, title: "This is title", time: "1/02/20. 8:14", place: "Bangledesh", details: "this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails ", img: img1, like:35 },
-        { id: 2, title: "This is title", time: "1/02/20. 8:14", place: "Bangledesh", details: "this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails ", img: img2, like:35 },
-        { id: 3, title: "This is title", time: "1/02/20. 8:14", place: "Bangledesh", details: "this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails ", img: img3, like:35 },
+        { id: 1, title: "This is title", time: "1/02/20. 8:14", place: "Bangledesh", details: "this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails ", img: img1, like: 35 },
+        { id: 2, title: "This is title", time: "1/02/20. 8:14", place: "Bangledesh", details: "this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails ", img: img2, like: 35 },
+        { id: 3, title: "This is title", time: "1/02/20. 8:14", place: "Bangledesh", details: "this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails this is datails ", img: img3, like: 35 },
     ]
     return (
         <div className='bg-dark py-5'>
@@ -27,17 +27,17 @@ const FormJurnalest = () => {
                                 <p><small>{jurnal.time} / {jurnal.place}</small></p>
                                 <p>{jurnal.details.slice(0, 100)}</p>
                                 <div>
-                                <p class="border-success text-success d-inline border-bottom me-5 font-monospace">CONTINUE READING</p>
+                                    <p className="border-success text-success d-inline border-bottom me-5 font-monospace">CONTINUE READING</p>
                                 <FaRegHeart className='text-danger'></FaRegHeart><p className='d-inline ms-1'><small>{jurnal.like}</small></p>
-                                </div>
                             </div>
+                        </div>
                         </div>)
                     }
 
-                </div>
             </div>
-
         </div>
+
+        </div >
     );
 };
 

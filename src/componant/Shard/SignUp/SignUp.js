@@ -11,13 +11,10 @@ const SignUp = () => {
                     <div className="col-lg-6 mb-5 mb-lg-0" style={{ zIndex: 10 }}>
                         <h1 className="my-5 display-5 fw-bold ls-tight" style={{ color: "hsl(218,81%,95%)" }} >
                             The best offer <br />
-                            <span style={{ color: "hsl(218, 81%, 85%)" }}>for your business</span>
+                            <span style={{ color: "hsl(218, 81%, 85%)" }}>for Sign Up <span className='text-warning'>PHOTO</span>GRAFI</span>
                         </h1>
                         <p className="mb-4 opacity-70" style={{ color: "hsl(218, 81%, 85%)" }}>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing elit.
-                            Temporibus, expedita iusto veniam atque, magni tempora mollitia
-                            dolorum consequatur nulla, neque debitis eos reprehenderit quasi
-                            ab ipsum nisi dolorem modi. Quos?
+                            A good photography website is a showcase for photos. Take inspiration from real-world photo galleries to design your digital photo gallery/photography portfolio website. Notice how galleries are uncluttered and how they use whitespace to distinctly display each photo
                         </p>
                     </div>
 
@@ -27,79 +24,77 @@ const SignUp = () => {
 
                         <div className="card bg-glass">
                             <div className="card-body px-4 py-5 px-md-5">
-                            <h3 className='mb-5'>Sign Up!</h3>
+                                <h3 className='mb-5'>Sign Up!</h3>
                                 <form>
-                                    
+
                                     <div className="row">
                                         <div className="col-md-6 mb-4">
                                             <div className="form-outline">
-                                                <input type="text" id="form3Example1" className="form-control" />
-                                                <label className="form-label" for="form3Example1">First name</label>
+                                                <label className="form-label" htmlFor="form3Example1">First name</label>
+                                                <input type="text" name='first' id="form3Example1" className="form-control" />
                                             </div>
                                         </div>
                                         <div className="col-md-6 mb-4">
                                             <div className="form-outline">
-                                                <input type="text" id="form3Example2" className="form-control" />
-                                                <label className="form-label" for="form3Example2">Last name</label>
+                                                <label className="form-label" htmlFor="form3Example2">Last name</label>
+                                                <input type="text" name='last' id="form3Example2" className="form-control" />
                                             </div>
                                         </div>
                                     </div>
 
-                                    
+
                                     <div className="form-outline mb-4">
-                                        <input type="email" id="form3Example3" className="form-control" />
-                                        <label className="form-label" for="form3Example3">Email address</label>
+                                        <label className="form-label" htmlFor="form3Example3">Email address</label>
+                                        <input type="email" name='email' id="form3Example3" className="form-control" />
                                     </div>
 
-                                    
-                                    <div className="form-outline mb-4">
-                                        <input type="password" id="form3Example4" className="form-control" />
-                                        <label className="form-label" for="form3Example4">Password</label>
-                                    </div>
-                                    <div class="d-flex align-items-center justify-content-center pb-4">
-                                        <p class="mb-0 me-2">Have an account?</p>
-                                        <Link to='/login'><button type="button" class="btn btn-outline-danger">Login new</button></Link>
-                                    </div>
 
-                                    
+                                    <div className="form-outline mb-4">
+                                        <label className="form-label" htmlFor="form3Example4">Password</label>
+                                        <input type="password" name='password' id="form3Example4" className="form-control" />
+                                    </div>
                                     <div className="form-check d-flex justify-content-center mb-4">
                                         <input className="form-check-input me-2" type="checkbox" value="" id="form2Example33" />
-                                        <label className="form-check-label" for="form2Example33">
-                                            Subscribe to our newsletter
+                                        <label className="form-check-label" htmlFor="form2Example33">
+                                            Accept all terms and conditions?
                                         </label>
                                     </div>
 
-                                    
+
                                     <button type="submit" className="btn btn-primary btn-block mb-4">
                                         Sign up
                                     </button>
 
-                                    
+
                                     <div className="text-center">
                                         <p>or sign up with:</p>
                                         <button type="button" className="btn btn-link btn-floating mx-1">
-                                            <FaFacebookSquare/>
+                                            <FaFacebookSquare />
                                         </button>
 
                                         <button type="button" className="btn btn-link btn-floating mx-1">
-                                            <FaGoogle/>
+                                            <FaGoogle />
                                         </button>
 
                                         <button type="button" className="btn btn-link btn-floating mx-1">
-                                            <FaTwitter/>
+                                            <FaTwitter />
                                         </button>
 
                                         <button type="button" className="btn btn-link btn-floating mx-1">
-                                            <FaGithub/>
+                                            <FaGithub />
                                         </button>
+                                    </div>
+                                    <div className="d-flex align-items-center justify-content-center pt-4">
+                                        <p className="mb-0 me-2">Have an account?</p>
+                                        <Link to='/login'><button type="button" className="btn btn-outline-danger">Login new</button></Link>
                                     </div>
                                 </form>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
+                </div >
+            </div >
+        </section >
     );
 };
 

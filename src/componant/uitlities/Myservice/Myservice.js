@@ -20,23 +20,23 @@ const Myservice = () => {
         <div className='my-5 py-5'>
             <VarticalTitle title={"MY SERVICES"} st={1}></VarticalTitle>
             <div className='container'>
-                <div class="row row-cols-1 row-cols-md-3 g-3">
-                    {
-                        services.map(servic => <div key={servic.id} class="col">
-                            <div class="card">
-                                <img style={{ height: "300px" }} src={servic.img} class="card-img-top" alt="..." />
-                                <div class="card-body">
-                                    <h4 class="card-title fw-bold">{servic.title}</h4>
-                                    <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                </div>
-                            </div>
-                        </div>)
+                <div className="row row-cols-1 row-cols-md-3 g-3">
+                {
+                    services.map(servic => <div key={servic.id} className="col" >
+                        <div className="card" >
+                    <img style={{ height: "300px" }} src={servic.img} className="card-img-top" alt = "..." />
+                    <div className="card-body" >
+                    <h4 className="card-title fw-bold" > { servic.title }</h4>
+            <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                                </div >
+                            </div >
+                        </div >)
                     }
 
 
-                </div>
-            </div>
-        </div>
+                </div >
+            </div >
+        </div >
     );
 };
 
