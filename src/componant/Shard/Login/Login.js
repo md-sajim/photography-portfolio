@@ -1,3 +1,4 @@
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext, useState } from 'react';
 import { FaFacebookSquare, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -5,8 +6,10 @@ import { AuthProvider } from '../../../context/ContextProvider';
 import './Login.css'
 
 const Login = () => {
+    const githubProvider = new GithubAuthProvider();
+    const googleProvider = new GoogleAuthProvider();
     const [err, setErr] = useState('')
-    const {login} = useContext(AuthProvider);
+    const {login,signupWithGoogle,githubSignUp} = useContext(AuthProvider);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -31,6 +34,22 @@ const Login = () => {
         })
         .catch(err =>console.log(err))
 
+    }
+    const hendelSigninGoogle = ()=>{
+        signupWithGoogle(googleProvider)
+        .then(result =>{
+            const user = result.user;
+            navigate(from, { replace: true })
+            console.log(user);
+        })
+        .catch(error=>console.error(error))
+    }
+    const hendleGit = () =>{
+        githubSignUp(githubProvider)
+        .then(result =>{
+            navigate(from,{replace:true})
+        })
+        .catch(err=>()=>{})
     }
     return (
         <section className="background-radial-gradient overflow-hidden">
@@ -83,7 +102,7 @@ const Login = () => {
                                             <FaFacebookSquare />
                                         </button>
 
-                                        <button type="button" className="btn btn-link btn-floating mx-1">
+                                        <button onClick={hendelSigninGoogle} type="button" className="btn btn-link btn-floating mx-1">
                                             <FaGoogle />
                                         </button>
 
@@ -91,7 +110,7 @@ const Login = () => {
                                             <FaTwitter />
                                         </button>
 
-                                        <button type="button" className="btn btn-link btn-floating mx-1">
+                                        <button onClick={hendleGit} type="button" className="btn btn-link btn-floating mx-1">
                                             <FaGithub />
                                         </button>
                                     </div>

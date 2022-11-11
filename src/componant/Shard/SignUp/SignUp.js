@@ -6,6 +6,8 @@ import { AuthProvider } from '../../../context/ContextProvider';
 import './SignUp.css'
 
 const SignUp = () => {
+    const googleProvider = new GoogleAuthProvider()
+    
     const { createAccout, signupWithGoogle } = useContext(AuthProvider)
     const navigate = useNavigate();
     const location = useLocation();
@@ -26,15 +28,16 @@ const SignUp = () => {
             .catch(err => console.log(err))
         console.log(name, email, password)
     }
-    const googleProvider = new GoogleAuthProvider()
-    const hendelSigninGoogle = ()=>{
+    const hendelSigninGoogle = () => {
         signupWithGoogle(googleProvider)
-        .then(result =>{
-            const user = result.user;
-            console.log(user);
-        })
-        .catch(error=>console.error(error))
+            .then(result => {
+                const user = result.user;
+                navigate(from, { replace: true })
+                console.log(user);
+            })
+            .catch(error => console.error(error))
     }
+ 
 
     return (
         <section className="background-radial-gradient overflow-hidden">
@@ -100,7 +103,7 @@ const SignUp = () => {
 
                                     <div className="text-center">
                                         <p>or sign up with:</p>
-                                        <button type="button" className="btn btn-link btn-floating mx-1">
+                                        <button  type="button" className="btn btn-link btn-floating mx-1">
                                             <FaFacebookSquare />
                                         </button>
 

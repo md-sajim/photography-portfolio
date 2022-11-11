@@ -27,6 +27,10 @@ const ContextProvider = ({ children }) => {
         setLoding(true)
         return signInWithPopup(auth, googleProvider)
     }
+   const githubSignUp = githubProvider =>{
+    setLoding(true);
+    return signInWithPopup(auth, githubProvider)
+   }
     useEffect(()=>{
         const unsubscribe =  onAuthStateChanged(auth, carrantUser =>{
               // console.log(carrantUser);
@@ -43,6 +47,9 @@ const ContextProvider = ({ children }) => {
         login,
         logOut,
         signupWithGoogle,
+        githubSignUp
+
+        
     }
     return (
         <AuthProvider.Provider value={value}>
