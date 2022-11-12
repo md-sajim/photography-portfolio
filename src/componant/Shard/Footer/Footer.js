@@ -5,13 +5,13 @@ const Footer = () => {
     const data = new Date();
     const year = data.getFullYear()
     return (
-        <div style={{ height: "100px" }} className='bg-dark  row  text-secondary'>
+        <div  className='bg-dark py-5 row m-0 text-secondary'>
             <div className='col-12 d-flex align-items-center justify-content-center col-lg-6'>
                 <p><small className='text-white'>&copy; {year}  Sajim. All rights reserved.</small></p>
             </div>
             <div className='col-12 d-flex align-items-center justify-content-center col-lg-6'>
                 {/* <!-- Facebook --> */}
-                <a className="btn text-white ms-1" style={{ backgroundColor: '#3b5998' }} href="#!" role="button">
+                <a className="btn text-white" style={{ backgroundColor: '#3b5998' }} href="#!" role="button">
                     <FaFacebookF />
                 </a>
 
@@ -33,64 +33,8 @@ const Footer = () => {
                 </a>
 
                 {/* <!-- Linkedin --> */}
-                <a className="btn text-white ms-1" style={{ backgroundColor: '#0082ca' }} href="#!" role="button">
+                
 
-                    <FaLinkedinIn></FaLinkedinIn>
-                </a>
-
-                {/* <!-- Pinterest --> */}
-                <a className="btn text-white ms-1" style={{ backgroundColor: '#c61118' }} href="#!" role="button">
-
-                    <FaPinterest></FaPinterest>
-                </a>
-
-                {/* <!-- Vkontakte --> */}
-                <a className="btn text-white ms-1" style={{ backgroundColor: '#4c75a3' }} href="#!" role="button">
-
-                    <FaVk></FaVk>
-                </a>
-
-                {/* <!-- Stack overflow --> */}
-                <a className="btn text-white ms-1" style={{ backgroundColor: '#ffac44' }} href="#!" role="button">
-
-                    <FaStackOverflow></FaStackOverflow>
-                </a>
-
-                {/* <!-- Youtube --> */}
-                <a className="btn text-white ms-1" style={{ backgroundColor: '#ed302f' }} href="#!" role="button">
-
-                    <FaYoutube></FaYoutube>
-                </a>
-
-                {/* <!-- Slack --> */}
-                <a className="btn text-white ms-1" style={{ backgroundColor: '#481449' }} href="#!" role="button">
-
-                    <FaSlack></FaSlack>
-                </a>
-
-                {/* <!-- Github --> */}
-                <a className="btn text-white ms-1" style={{ backgroundColor: '#333333' }} href="#!" role="button">
-
-                    <FaGithub></FaGithub>
-                </a>
-
-                {/* <!-- Dribbble --> */}
-                <a className="btn text-white ms-1" style={{ backgroundColor: '#ec4a89' }} href="#!" role="button">
-
-                    <FaDribbble></FaDribbble>
-                </a>
-
-                {/* <!-- Reddit --> */}
-                <a className="btn text-white ms-1" style={{ backgroundColor: '#ff4500' }} href="#!" role="button">
-
-                    <FaRedditAlien></FaRedditAlien>
-                </a>
-
-                {/* <!-- Whatsapp --> */}
-                <a className="btn text-white ms-1" style={{ backgroundColor: '#25d366' }} href="#!" role="button">
-
-                    <FaWhatsapp></FaWhatsapp>
-                </a>
             </div>
         </div>
     );

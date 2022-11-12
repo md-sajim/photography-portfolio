@@ -1,0 +1,24 @@
+/* pagenation */
+.pagenation {
+    margin: 50px 0 10px 200px;
+}
+
+.pagenation button {
+    margin: 0 5px;
+    border: 0;
+    border-radius: 25px;
+    padding: 8px;
+}
+
+.pagenation .selected {
+    background-color: orange;
+    padding: 10px;
+    font-weight: bold;
+    color: white;
+}
+
+/* selected value */
+.selected-value {
+
+    padding: 10px 0;
+}

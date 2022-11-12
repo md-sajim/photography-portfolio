@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import VarticalTitle from '../VarticalTitle/VarticalTitle';
 import image1 from '../../../essetcs/img/services/service-1.jpg'
 import image2 from '../../../essetcs/img/services/service-2.jpg'
@@ -8,16 +8,16 @@ import image5 from '../../../essetcs/img/services/service-5.jpg'
 import image6 from '../../../essetcs/img/services/service-6.jpg'
 import { Link } from 'react-router-dom';
 import { FaDollarSign, FaHeart, FaHeartBroken } from 'react-icons/fa';
+import { Button } from 'react-bootstrap';
 
 const Myservice = () => {
-    const services = [
-        { id: 1, img: image1, title: "Wedding Photography", like: 5000, deslike: 29, price:5000 },
-        { id: 2, img: image2, title: "Birth Photography", like: 5000, deslike: 29, price:5000 },
-        { id: 3, img: image3, title: "Food Photography", like: 5000, deslike: 29, price:5000 },
-        { id: 4, img: image4, title: "Fashion Photography", like: 5000, deslike: 29, price:5000 },
-        { id: 5, img: image5, title: "Jewelery Photography", like: 5000, deslike: 29, price:5000 },
-        { id: 6, img: image6, title: "Drink Photography", like: 5000, deslike: 29, price:5000 },
-    ]
+    const [services, setServices] = useState([])
+    useEffect(() => {
+        const url = 'http://localhost:5000/serves'
+        fetch(url)
+            .then(res => res.json())
+            .then(data => setServices(data))
+    }, [])
     return (
         <div className='my-5 py-5'>
             <VarticalTitle title={"MY SERVICES"} st={1}></VarticalTitle>
@@ -30,7 +30,7 @@ const Myservice = () => {
                                 <div className="card-body" >
                                     <h4 className="card-title fw-bold" > {servic.title}</h4>
                                     <p className="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-                                    <h6>Price: {servic.price} <FaDollarSign/></h6>
+                                    <h6>Price: {servic.price} <FaDollarSign /></h6>
                                     <div class="d-flex justify-content-between">
                                         <Link to='/details' className='text-decoration-none'>Details</Link>
                                         <p><FaHeart className='text-danger' /> {servic.like} <span className='border-end me-1 border-2 border-info'></span> <FaHeartBroken className='text-warning' /> {servic.deslike}</p>
@@ -40,8 +40,8 @@ const Myservice = () => {
                         </div >)
                     }
 
-
                 </div >
+                <Button variant="outline-secondary mt-5"><Link to='/moredetails' className='text-decoration-none text-warning'>MORE SERVICES</Link></Button>
             </div >
         </div >
     );

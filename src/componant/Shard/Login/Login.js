@@ -32,7 +32,10 @@ const Login = () => {
             navigate(from,{replace:true})
 
         })
-        .catch(err =>console.log(err))
+        .catch(err =>{
+            console.log(err)
+            setErr(err.code)
+        })
 
     }
     const hendelSigninGoogle = ()=>{

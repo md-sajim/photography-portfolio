@@ -9,6 +9,7 @@ import Login from './componant/Shard/Login/Login';
 import SignUp from './componant/Shard/SignUp/SignUp';
 import PrivateRoute from './componant/Shard/PrivateRouter/PrivateRoute';
 import DetailsPage from './componant/DetailsPage/DetailsPage';
+import MoreDetails from './componant/uitlities/MoreDetails/MoreDetails';
 
 function App() {
   const {name} = useContext(AuthProvider)
@@ -30,8 +31,13 @@ function App() {
           element:<SignUp></SignUp>
         },
         {
-          path:'/details',
+          path:'/details/:id',
+          loader:({params})=>fetch(`http://localhost:5000/serves/${params.id}`),
           element:<PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
+        },
+        {
+          path:'/moredetails',
+          element:<PrivateRoute><MoreDetails></MoreDetails></PrivateRoute>
         }
       ]
     }
