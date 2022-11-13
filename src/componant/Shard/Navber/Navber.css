@@ -7,3 +7,9 @@
     background: silver;
     margin: 0 1px;
 }
+.img-style{
+    height: 45px;
+    width: 45px;
+    margin-left: 5px;
+    clip-path: polygon(20% 0%, 80% 0%, 100% 20%, 100% 80%, 80% 100%, 20% 100%, 0% 80%, 0% 20%);
+}

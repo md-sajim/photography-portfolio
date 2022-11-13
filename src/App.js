@@ -11,41 +11,58 @@ import PrivateRoute from './componant/Shard/PrivateRouter/PrivateRoute';
 import DetailsPage from './componant/DetailsPage/DetailsPage';
 import MoreDetails from './componant/uitlities/MoreDetails/MoreDetails';
 import RevewPage from './componant/pages/RevewPage/RevewPage';
+import UpdatePage from './componant/pages/UpdatePage/UpdatePage';
+import Blog from './componant/pages/Blog/Blog';
+import NotFound from './componant/pages/NotFound/NotFound';
 
 function App() {
-  const {name} = useContext(AuthProvider)
+  const { name } = useContext(AuthProvider)
   const router = createBrowserRouter([
     {
-      path:"/",
-      element:<Main></Main>,
-      children:[
+      path: "/",
+      element: <Main></Main>,
+      children: [
         {
-          path:"/",
-          element:<Home></Home>
+          path: "/",
+         
+          element: <Home></Home>
         },
         {
-          path:'/login',
-          element:<Login></Login>
+          path: '/login',
+          element: <Login></Login>
         },
         {
-          path:'/signup',
-          element:<SignUp></SignUp>
+          path: '/signup',
+          element: <SignUp></SignUp>
         },
         {
-          path:'/details/:id',
-          loader:({params})=>fetch(`http://localhost:5000/serves/${params.id}`),
-          element:<PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
+          path:"/details/:id",
+          loader: ({ params }) => fetch(`http://localhost:5000/serves/${params.id}`),
+          element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
         },
         {
-          path:'/moredetails',
-          element:<PrivateRoute><MoreDetails></MoreDetails></PrivateRoute>
+          path: '/moredetails',
+          element: <PrivateRoute><MoreDetails></MoreDetails></PrivateRoute>
         },
         {
-          path:'/orderrevew',
-          element:<RevewPage></RevewPage>
+          path: '/orderrevew',
+          element: <RevewPage></RevewPage>
+        },
+        {
+          path: "/update/:id",
+          loader:({params})=>fetch(`http://localhost:5000/update/${params.id}`),
+          element: <UpdatePage></UpdatePage>
+        },
+        {
+          path:'/blog',
+          element:<Blog></Blog>
         }
 
       ]
+    },
+    {
+      path:'*',
+      element:<NotFound></NotFound>
     }
   ])
   console.log(name)

@@ -39,7 +39,18 @@ const RevewPage = () => {
         }
 
     }
-    // console.log(products)
+    const deleteItem = id => {
+        fetch(`http://localhost:5000/order/${id}`, { method: 'DELETE' })
+            .then(res => res.json())
+            .then(data => {
+                if (data.deletedCount > 0) {
+                    const remaining = products.filter(odr => odr._id !== id)
+                    setProduct(remaining)
+                }
+            })
+
+    }
+    console.log(products)
     return (
         <section className="background-radial-gradient overflow-hidden pt-4">
             <VarticalTitle title={"ORDER REVEW"}></VarticalTitle>
@@ -63,14 +74,15 @@ const RevewPage = () => {
                                         <div className="card-body text-start">
                                             <h5 className="card-title">Servic Name: {product.ServicName}</h5>
                                             <h5 className="card-title">Name: {product.castomerName}</h5>
-                                            <h5 className="card-title">{product.email}</h5>
-                                            <h5 className="card-title">{product.address}</h5>
-                                            <h5 className="card-title">{product.phone}</h5>
+                                            <h5 className="card-title">Email: {product.email}</h5>
+                                            <h5 className="card-title">Adderss: {product.address}</h5>
+                                            <h5 className="card-title">Phone: {product.phone}</h5>
                                             <p className="card-text">Important Commint: <strong>{product.castomerText}</strong></p>
                                             <div className={
                                                 product.status ? 'd-none' : 'd-block'}>
-                                                <Link ><button className="btn btn-warning m-1"><small>Update</small></button></Link>
-                                                <button className="btn btn-danger m-1"><small>Cancel</small></button>
+                                                <Link className="btn btn-warning m-1" to={`/update/${product._id}`} ><small>Update</small>
+                                                </Link>
+                                                <button onClick={() => deleteItem(product._id)} className="btn btn-danger m-1"><small>Cancel</small></button>
                                                 <button onClick={() => confirmOrder(product._id)} className="btn btn-success m-1"><small>Confirm</small></button>
                                             </div>
                                         </div>
