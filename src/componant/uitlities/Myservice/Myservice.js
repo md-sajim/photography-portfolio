@@ -13,7 +13,7 @@ import { Button } from 'react-bootstrap';
 const Myservice = () => {
     const [services, setServices] = useState([])
     useEffect(() => {
-        const url = 'http://localhost:5000/serves'
+        const url = 'https://assingment-clint-server.vercel.app/serves'
         fetch(url)
             .then(res => res.json())
             .then(data => setServices(data))

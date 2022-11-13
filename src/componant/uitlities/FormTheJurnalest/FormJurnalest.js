@@ -30,7 +30,7 @@ const FormJurnalest = () => {
                                 <p><small>{jurnal.time} / {jurnal.place}</small></p>
                                 <p>{jurnal.details.slice(0, 100)}</p>
                                 <div>
-                                    <Link to='/details' className='text-decoration-none'> <p className="border-success text-success d-inline border-bottom me-5 font-monospace">CONTINUE READING</p></Link>
+                                    <Link to='/details' className='text-decoration-none'> <p className="border-success text-success d-inline border-bottom me-4 font-monospace">CONTINUE READING</p></Link>
                                     <FaRegHeart className='text-danger'></FaRegHeart><p className='d-inline ms-1'><small>{jurnal.like}</small></p>
                                 </div>
                             </div>

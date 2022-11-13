@@ -8,7 +8,7 @@ const RevewPage = () => {
     const { user } = useContext(AuthProvider)
     const [products, setProduct] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/revew?email=${user?.email}`)
+        fetch(`https://assingment-clint-server.vercel.app/revew?email=${user?.email}`)
             .then(async (res) => await res.json())
             .then(data => setProduct(data))
     }, [user.email])
@@ -18,7 +18,7 @@ const RevewPage = () => {
         const confiem = window.confirm("If you confirm this order, After then you can not cancel or update any thing!!!")
         if (confiem) {
 
-            fetch(`http://localhost:5000/order/${id}`, {
+            fetch(`https://assingment-clint-server.vercel.app/order/${id}`, {
                 method: 'PATCH',
                 headers: {
                     "content-type": "application/json"
@@ -40,7 +40,7 @@ const RevewPage = () => {
 
     }
     const deleteItem = id => {
-        fetch(`http://localhost:5000/order/${id}`, { method: 'DELETE' })
+        fetch(`https://assingment-clint-server.vercel.app/order/${id}`, { method: 'DELETE' })
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {

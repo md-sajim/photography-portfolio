@@ -24,7 +24,7 @@ function App() {
       children: [
         {
           path: "/",
-         
+
           element: <Home></Home>
         },
         {
@@ -36,8 +36,8 @@ function App() {
           element: <SignUp></SignUp>
         },
         {
-          path:"/details/:id",
-          loader: ({ params }) => fetch(`http://localhost:5000/serves/${params.id}`),
+          path: "/details/:id",
+          loader: ({ params }) => fetch(`https://assingment-clint-server.vercel.app/serves/${params.id}`),
           element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
         },
         {
@@ -46,23 +46,23 @@ function App() {
         },
         {
           path: '/orderrevew',
-          element: <RevewPage></RevewPage>
+          element: <PrivateRoute><RevewPage></RevewPage></PrivateRoute>
         },
         {
           path: "/update/:id",
-          loader:({params})=>fetch(`http://localhost:5000/update/${params.id}`),
+          loader: ({ params }) => fetch(`https://assingment-clint-server.vercel.app/update/${params.id}`),
           element: <UpdatePage></UpdatePage>
         },
         {
-          path:'/blog',
-          element:<Blog></Blog>
+          path: '/blog',
+          element: <Blog></Blog>
         }
 
       ]
     },
     {
-      path:'*',
-      element:<NotFound></NotFound>
+      path: '*',
+      element: <NotFound></NotFound>
     }
   ])
   console.log(name)

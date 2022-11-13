@@ -11,7 +11,7 @@ const MoreDetails = () => {
     const [size, setSize] = useState(10);
     const [count, setCount] = useState(0)
     useEffect(() => {
-        const url = `http://localhost:5000/moreserves?page=${page}&size=${size}`
+        const url = `https://assingment-clint-server.vercel.app/moreserves?page=${page}&size=${size}`
         fetch(url)
             .then(res => res.json())
             .then(data => {
@@ -19,7 +19,7 @@ const MoreDetails = () => {
                 setServices(data.servic)
                 setCount(data.count)
             })
-    }, [page,size])
+    }, [page, size])
     const pages = Math.ceil(count / size);
     console.log(size)
     return (
@@ -36,7 +36,7 @@ const MoreDetails = () => {
                                         <div className="card-body" >
                                             <h4 className="card-title fw-bold" > {servic.title}</h4>
                                             <p className="card-text">
-                                                {servic.details.slice(0,140)}...
+                                                {servic.details.slice(0, 140)}...
                                             </p>
                                             <h6>Price: {servic.price} <FaDollarSign /></h6>
                                             <div class="d-flex justify-content-between">
@@ -50,23 +50,23 @@ const MoreDetails = () => {
 
                         </div >
                         <div>
-                <div className="pagenation">
-                    {
-                        [...Array(pages).keys()].map(num => <button
-                            onClick={() => setPage(num)}
-                            className={page === num ? "selected" : ""}
-                            key={num}>{num + 1}</button>)
-                    }
-                    <select className='selected-value'
-                        onChange={(e) => setSize(e.target.value)}
-                    >
-                        <option value="5">5</option>
-                        <option value="10" selected>10</option>
-                        <option value="15">15</option>
-                        <option value="20">20</option>
-                    </select>
-                </div>
-            </div>
+                            <div className="pagenation">
+                                {
+                                    [...Array(pages).keys()].map(num => <button
+                                        onClick={() => setPage(num)}
+                                        className={page === num ? "selected" : ""}
+                                        key={num}>{num + 1}</button>)
+                                }
+                                <select className='selected-value'
+                                    onChange={(e) => setSize(e.target.value)}
+                                >
+                                    <option value="5">5</option>
+                                    <option value="10" selected>10</option>
+                                    <option value="15">15</option>
+                                    <option value="20">20</option>
+                                </select>
+                            </div>
+                        </div>
                     </div >
                 </div >
             </div >
