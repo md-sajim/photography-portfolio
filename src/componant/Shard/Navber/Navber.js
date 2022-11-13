@@ -23,27 +23,18 @@ const Navber = () => {
           <Nav className="ms-auto">
             <Nav.Link href="#features">Features</Nav.Link>
             <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
+
+            <Link className="btn btn-secondary  active" to='/orderrevew'>Revew</Link>
           </Nav>
-          <div className='vartical-line'></div>
+          <div className='vartical-line ms-2'></div>
           <div className='vartical-line'></div>
           <Nav>
             <Nav.Link href="#deets">More deets</Nav.Link>
 
             {user?.uid ?
-              <button className="btn btn-secondary btn-lg active" onClick={hendleLogOut}>LogOut</button>
+              <button className="btn btn-secondary  active" onClick={hendleLogOut}>LogOut</button>
               :
-              <Link className="btn btn-secondary btn-lg active" to='/login'>Log In</Link>
+              <Link className="btn btn-secondary active" to='/login'>Log In</Link>
             }
 
           </Nav>

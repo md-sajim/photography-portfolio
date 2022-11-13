@@ -47,7 +47,8 @@ const ContextProvider = ({ children }) => {
         login,
         logOut,
         signupWithGoogle,
-        githubSignUp
+        githubSignUp,
+        setLoding
 
         
     }

@@ -10,6 +10,7 @@ import SignUp from './componant/Shard/SignUp/SignUp';
 import PrivateRoute from './componant/Shard/PrivateRouter/PrivateRoute';
 import DetailsPage from './componant/DetailsPage/DetailsPage';
 import MoreDetails from './componant/uitlities/MoreDetails/MoreDetails';
+import RevewPage from './componant/pages/RevewPage/RevewPage';
 
 function App() {
   const {name} = useContext(AuthProvider)
@@ -38,7 +39,12 @@ function App() {
         {
           path:'/moredetails',
           element:<PrivateRoute><MoreDetails></MoreDetails></PrivateRoute>
+        },
+        {
+          path:'/orderrevew',
+          element:<RevewPage></RevewPage>
         }
+
       ]
     }
   ])
