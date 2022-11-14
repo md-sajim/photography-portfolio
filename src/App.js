@@ -1,7 +1,4 @@
-import logo from './logo.svg';
 import './App.css';
-import { useContext } from 'react';
-import { AuthProvider } from './context/ContextProvider';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Main from './context/layOut/Main';
 import Home from './componant/pages/Home/Home';
@@ -16,7 +13,6 @@ import Blog from './componant/pages/Blog/Blog';
 import NotFound from './componant/pages/NotFound/NotFound';
 
 function App() {
-  const { name } = useContext(AuthProvider)
   const router = createBrowserRouter([
     {
       path: "/",
@@ -65,7 +61,6 @@ function App() {
       element: <NotFound></NotFound>
     }
   ])
-  console.log(name)
   return (
     <RouterProvider router={router}></RouterProvider>
   );

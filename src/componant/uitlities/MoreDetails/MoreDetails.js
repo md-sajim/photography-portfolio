@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import './MoreDetails.css'
-import { Button } from 'react-bootstrap';
 import { FaDollarSign, FaHeart, FaHeartBroken } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import VarticalTitle from '../VarticalTitle/VarticalTitle';
@@ -15,13 +14,11 @@ const MoreDetails = () => {
         fetch(url)
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 setServices(data.servic)
                 setCount(data.count)
             })
     }, [page, size])
     const pages = Math.ceil(count / size);
-    console.log(size)
     return (
         <section className="background-radial-gradient overflow-hidden">
             <div className="container px-4 px-md-5 text-center text-lg-start">

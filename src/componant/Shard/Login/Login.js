@@ -9,7 +9,7 @@ const Login = () => {
     const githubProvider = new GithubAuthProvider();
     const googleProvider = new GoogleAuthProvider();
     const [err, setErr] = useState('')
-    const {login,signupWithGoogle,githubSignUp} = useContext(AuthProvider);
+    const { login, signupWithGoogle, githubSignUp } = useContext(AuthProvider);
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
@@ -19,40 +19,36 @@ const Login = () => {
         const email = form.email.value;
         const password = form.password.value;
         const condition = form.checkbox.checked;
-        if(password.length < 8){
-         
+        if (password.length < 8) {
+
             return setErr("Please give password menimum 8 caracters!")
         }
-        if(condition === false){
+        if (condition === false) {
             return setErr("please accept thrms condition")
         }
-        login(email,password)
-        .then(result =>{
-            const user = result.user;
-            navigate(from,{replace:true})
+        login(email, password)
+            .then(result => {
+                navigate(from, { replace: true })
 
-        })
-        .catch(err =>{
-            console.log(err)
-            setErr(err.code)
-        })
+            })
+            .catch(err => {
+                setErr(err.code)
+            })
 
     }
-    const hendelSigninGoogle = ()=>{
+    const hendelSigninGoogle = () => {
         signupWithGoogle(googleProvider)
-        .then(result =>{
-            const user = result.user;
-            navigate(from, { replace: true })
-            console.log(user);
-        })
-        .catch(error=>console.error(error))
+            .then(result => {
+                navigate(from, { replace: true })
+            })
+            .catch(error => console.error(error))
     }
-    const hendleGit = () =>{
+    const hendleGit = () => {
         githubSignUp(githubProvider)
-        .then(result =>{
-            navigate(from,{replace:true})
-        })
-        .catch(err=>()=>{})
+            .then(result => {
+                navigate(from, { replace: true })
+            })
+            .catch(err => () => { })
     }
     return (
         <section className="background-radial-gradient overflow-hidden">
@@ -87,7 +83,7 @@ const Login = () => {
                                         <input type="password" name='password' id="form3Example4" className="form-control" required />
                                     </div>
                                     <div className="form-check d-flex justify-content-center mb-4">
-                                        <input className="form-check-input me-2" name='checkbox' type="checkbox"  id="form2Example33" />
+                                        <input className="form-check-input me-2" name='checkbox' type="checkbox" id="form2Example33" />
                                         <label className="form-check-label" htmlFor="form2Example33">
                                             Accept all terms and conditions?
                                         </label>

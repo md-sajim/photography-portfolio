@@ -10,7 +10,7 @@ const MySkeles = () => {
         {id:4, value: 85, titla: "Motion Video" },
     ]
     return (
-        <div className='container  py-5'>
+        <div className='container px-0  py-5'>
             <div className='row   p-0 w-100 text-secondary'>
                 <div className=' col-12 col-lg-6'>
                     <div className=' d-flex align-items-center my-3'>

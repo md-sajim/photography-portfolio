@@ -33,7 +33,6 @@ const ContextProvider = ({ children }) => {
    }
     useEffect(()=>{
         const unsubscribe =  onAuthStateChanged(auth, carrantUser =>{
-              // console.log(carrantUser);
               setUser(carrantUser)
               setLoding(false)
           })

@@ -25,6 +25,8 @@ import img18 from '../../../essetcs/img/myflickStort/service-6.jpg'
 
 
 const LatastFlickerShort = () => {
+
+    
     const arr = [
         { id: 1, img: img1 },
         { id: 2, img: img2 },

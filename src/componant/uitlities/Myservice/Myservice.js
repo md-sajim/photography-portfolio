@@ -1,11 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import VarticalTitle from '../VarticalTitle/VarticalTitle';
-import image1 from '../../../essetcs/img/services/service-1.jpg'
-import image2 from '../../../essetcs/img/services/service-2.jpg'
-import image3 from '../../../essetcs/img/services/service-3.jpg'
-import image4 from '../../../essetcs/img/services/service-4.jpg'
-import image5 from '../../../essetcs/img/services/service-5.jpg'
-import image6 from '../../../essetcs/img/services/service-6.jpg'
 import { Link } from 'react-router-dom';
 import { FaDollarSign, FaHeart, FaHeartBroken } from 'react-icons/fa';
 import { Button } from 'react-bootstrap';
@@ -21,7 +15,7 @@ const Myservice = () => {
     return (
         <div className='my-5 py-5'>
             <VarticalTitle title={"MY SERVICES"} st={1}></VarticalTitle>
-            <div className='container'>
+            <div className='container px-0'>
                 <div className="row row-cols-1 row-cols-md-3 g-3">
                     {
                         services.map(servic => <div key={servic.id} className="col" >

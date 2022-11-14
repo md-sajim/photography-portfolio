@@ -8,7 +8,7 @@ import './DetailsPage.css'
 const DetailsPage = () => {
     const { user } = useContext(AuthProvider)
     const data = useLoaderData()
-    const { _id, img, title, details, like, deslike, price } = data;
+    const { img, title, details, like, deslike, price } = data;
     const navigate = useNavigate()
 
     const hendleOrder = e => {
@@ -33,7 +33,7 @@ const DetailsPage = () => {
             lest
         }
 
-        console.log(orderDatals)
+
         fetch("https://assingment-clint-server.vercel.app/order", {
             method: "POST",
             headers: {
@@ -44,7 +44,6 @@ const DetailsPage = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.acknowledged) {
                     form.reset()
                     alert("order success")
@@ -58,7 +57,7 @@ const DetailsPage = () => {
     }
     return (
         <section className="background-radial-gradient overflow-hidden">
-            <div className="container px-4 py-5 px-md-5 text-center text-lg-start my-5">
+            <div className="container  px-4 py-5 px-md-5 text-center text-lg-start my-5">
                 <VarticalTitle title={'PLACE ORDER'}></VarticalTitle>
                 <div className="row gx-lg-5 align-items-center mt-1 mb-5">
                     <div className="col-lg-12 mb-5 mb-lg-0" style={{ zIndex: 10 }}>

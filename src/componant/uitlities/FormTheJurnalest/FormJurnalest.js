@@ -4,7 +4,7 @@ import './FormJurmalest.css'
 import img1 from '../../../essetcs/img/my latast short/myshort-1.jpg'
 import img2 from '../../../essetcs/img/my latast short/myshort-5.jpg'
 import img3 from '../../../essetcs/img/my latast short/myshort-4.jpg'
-import { FaRegHeart, IconName } from "react-icons/fa";
+import { FaRegHeart } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 
 const FormJurnalest = () => {

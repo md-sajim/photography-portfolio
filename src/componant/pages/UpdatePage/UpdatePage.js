@@ -1,5 +1,4 @@
 import React, { useContext } from 'react';
-import { FaHeart, FaHeartBroken } from 'react-icons/fa';
 import { Link, useLoaderData, useNavigate } from 'react-router-dom';
 import { AuthProvider } from '../../../context/ContextProvider';
 import VarticalTitle from '../../uitlities/VarticalTitle/VarticalTitle';
@@ -10,7 +9,6 @@ const UpdatePage = () => {
 
 
     const data = useLoaderData();
-    console.log(data);
     const { user } = useContext(AuthProvider)
 
     const { _id, img, ServicName, frist, lest, address, phone, castomerText } = data;
@@ -34,8 +32,6 @@ const UpdatePage = () => {
             ServicName,
 
         }
-
-        console.log(orderDatals, _id)
         fetch(`https://assingment-clint-server.vercel.app/update/${_id}`, {
             method: 'PUT',
             headers: {
@@ -45,17 +41,14 @@ const UpdatePage = () => {
         })
             .then(res => res.json())
             .then(data => {
-                console.log(data)
                 if (data.modifiedCount > 0) {
                     alert("update success")
+                    navigate('/orderrevew', { replace: true })
                 }
             })
 
 
 
-    }
-    const hendleAlart = () => {
-        alert("email con not change")
     }
     return (
         <section className="background-radial-gradient overflow-hidden">

@@ -50,7 +50,6 @@ const RevewPage = () => {
             })
 
     }
-    console.log(products)
     return (
         <section className="background-radial-gradient overflow-hidden pt-4">
             <VarticalTitle title={"ORDER REVEW"}></VarticalTitle>

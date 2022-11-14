@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'firebase/auth';
+import { GithubAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
 import { FaFacebookSquare, FaGithub, FaGoogle, FaTwitter } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -7,35 +7,37 @@ import './SignUp.css'
 
 const SignUp = () => {
     const googleProvider = new GoogleAuthProvider()
+    const githubProvider = new GithubAuthProvider();
     
-    const { createAccout, signupWithGoogle } = useContext(AuthProvider)
+    const { createAccout, signupWithGoogle, githubSignUp } = useContext(AuthProvider)
     const navigate = useNavigate();
     const location = useLocation();
     const from = location.state?.from?.pathname || '/'
     const hendleSignForm = e => {
         e.preventDefault();
         const form = e.target;
-        const name = form.first.value + " " + form.last.value;
         const email = form.email.value;
         const password = form.password.value;
         createAccout(email, password)
             .then(result => {
-                const user = result.user;
                 navigate(from, { replace: true })
                 form.reset();
-                console.log(user)
             })
-            .catch(err => console.log(err))
-        console.log(name, email, password)
+            .catch(err =>()=>{})
     }
     const hendelSigninGoogle = () => {
         signupWithGoogle(googleProvider)
             .then(result => {
-                const user = result.user;
                 navigate(from, { replace: true })
-                console.log(user);
             })
             .catch(error => console.error(error))
+    }  
+    const hendleGithub = () =>{
+        githubSignUp(githubProvider)
+        .then(result =>{
+            navigate(from,{replace:true})
+        })
+        .catch(err=>()=>{})
     }
  
 
@@ -115,7 +117,7 @@ const SignUp = () => {
                                             <FaTwitter />
                                         </button>
 
-                                        <button type="button" className="btn btn-link btn-floating mx-1">
+                                        <button onClick={hendleGithub} type="button" className="btn btn-link btn-floating mx-1">
                                             <FaGithub />
                                         </button>
                                     </div>
